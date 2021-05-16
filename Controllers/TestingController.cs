@@ -7,7 +7,7 @@ namespace iread_api_gateway_ms.Controllers
     [Route("[controller]")]
     public class TestingController : ControllerBase
     {
-         // GET: Testing/api/msg
+         // GET: Testing
         [HttpGet]
         public async Task<IActionResult> GetMsg()
         {

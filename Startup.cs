@@ -11,6 +11,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Ocelot.DependencyInjection;
+using Ocelot.Provider.Consul;
+using Ocelot.Middleware; //For middleware
 
 namespace iread_api_gateway_ms
 {
@@ -28,32 +31,38 @@ namespace iread_api_gateway_ms
         {
 
             services.AddControllers();
+            services.AddOcelot().AddConsul();
             services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "iread_api_gateway_ms", Version = "v1" });
-            });
+			{
+				c.SwaggerDoc("v1", new OpenApiInfo { Title = "Iread API Gateway", Version = "v1" });
+			});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "iread_api_gateway_ms v1"));
-            }
+           app.UseCors(builder => builder
+						.AllowAnyOrigin()
+						.AllowAnyHeader()
+						.AllowAnyMethod());
 
-            app.UseHttpsRedirection();
+			app.UseDeveloperExceptionPage();
+			app.UseSwagger();
+			app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Iread API Gateway v1"));
 
-            app.UseRouting();
+			//app.UseHttpsRedirection();
 
-            app.UseAuthorization();
+			
+			app.UseAuthentication();
+			app.UseRouting();
+			app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+
+			app.UseEndpoints(endpoints =>
+			{
+				endpoints.MapControllers();
+			});
+
         }
     }
 }
