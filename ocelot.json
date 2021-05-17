@@ -1,17 +1,10 @@
 {
-	"ReRoutes": [
+	"Routes": [
 		{
-			//"UseServiceDiscovery": true,
-			//"ServiceName": "attachmentService",
-			"DownstreamHostAndPorts": [
-
-				{
-					"Host": "localhost",
-					"Port": "5008"
-				}
-			],
-			"DownstreamPathTemplate": "/api/Attachments/{anything}",
-			"UpstreamPathTemplate": "/api/gateway/Attachments/{anything}",
+			"UseServiceDiscovery": true,
+			"ServiceName": "story_ms",
+			"DownstreamPathTemplate": "/api/stories/{anything}",
+			"UpstreamPathTemplate": "/api/iread/stories/{anything}",
 			"DownstreamScheme": "http",
 			"UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
 			"ReRoutesCaseSensitive": false,
@@ -22,9 +15,10 @@
 	],
 	"GlobalConfiguration": {
 		"ServiceDiscoveryProvider": {
-		  "Host": "localhost",
-		  "Port": 8500,
-		  "Type": "Consul"
+			"Scheme": "http",
+			"Host": "127.0.0.1",
+			"Port": 8500,
+			"Type": "Consul"
 		}
 	}
 }
