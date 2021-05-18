@@ -1,0 +1,12 @@
+
+##############################################################
+#################   ocelot api gateway    ####################
+##############################################################
+
+##build docker image for ocelot api gateway:
+docker build -f Dockerfile -t iread_api_gateway_ms .
+
+##create container from ocelot docker image:
+docker run -p 8080:80 -d --name=iread_api_gateway_ms --hostname=iread_api_gateway_ms  iread_api_gateway_ms
+
+##############################################################
