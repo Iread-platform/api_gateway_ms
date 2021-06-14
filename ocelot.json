@@ -11,6 +11,18 @@
 			"LoadBalancerOptions": {
 				"Type": "RoundRobin"
 			}
+		},
+		{
+			"UseServiceDiscovery": true,
+			"ServiceName": "review_ms",
+			"DownstreamPathTemplate": "/api/review/{anything}",
+			"UpstreamPathTemplate": "/api/iread/review/{anything}",
+			"DownstreamScheme": "http",
+			"UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+			"ReRoutesCaseSensitive": false,
+			"LoadBalancerOptions": {
+				"Type": "RoundRobin"
+			}
 		}
 	],
 	"GlobalConfiguration": {
