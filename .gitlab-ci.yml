@@ -9,8 +9,8 @@ variables:
   DOCKER_USER_NAME: "yazankassamcodavia"
   DOCKER_PASSWORD: "yazankassamcod@v!@"
   DOCKER_ORGANIZATION_NAME: "iread"
-  DOCKER_IMAGE_NAME: "story_ms"
-  CONTAINER_PORT: "5010"
+  DOCKER_IMAGE_NAME: "api_gateway_ms"
+  CONTAINER_PORT: "5014"
 
   
 build:
