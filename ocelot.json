@@ -3,8 +3,8 @@
 		{
 			"UseServiceDiscovery": true,
 			"ServiceName": "story_ms",
-			"DownstreamPathTemplate": "/api/stories/{anything}",
-			"UpstreamPathTemplate": "/api/iread/stories/{anything}",
+			"DownstreamPathTemplate": "/api/story/{anything}",
+			"UpstreamPathTemplate": "/api/iread/story/{anything}",
 			"DownstreamScheme": "http",
 			"UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
 			"ReRoutesCaseSensitive": false,
