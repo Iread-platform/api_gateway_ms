@@ -14,6 +14,18 @@
 		},
 		{
 			"UseServiceDiscovery": true,
+			"ServiceName": "attachment_ms",
+			"DownstreamPathTemplate": "/api/Attachment/{anything}",
+			"UpstreamPathTemplate": "/api/iread/Attachment/{anything}",
+			"DownstreamScheme": "http",
+			"UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+			"ReRoutesCaseSensitive": false,
+			"LoadBalancerOptions": {
+				"Type": "RoundRobin"
+			}
+		},
+		{
+			"UseServiceDiscovery": true,
 			"ServiceName": "review_ms",
 			"DownstreamPathTemplate": "/api/review/{anything}",
 			"UpstreamPathTemplate": "/api/iread/review/{anything}",
