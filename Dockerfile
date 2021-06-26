@@ -4,7 +4,7 @@ MAINTAINER Yazan kassam, yazankassam.codavia@gmail.com
 
 WORKDIR /app
 
-ENV ASPNETCORE_URLS="http://api_gateway_ms"
+ENV ASPNETCORE_URLS="http://api_gateway_ms;https://api_gateway_ms:443"
 
 ENV ASPNETCORE_ENVIRONMENT=Development
 
