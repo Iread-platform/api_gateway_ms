@@ -11,7 +11,7 @@ variables:
   DOCKER_ORGANIZATION_NAME: "iread"
   DOCKER_IMAGE_NAME: "api_gateway_ms"
   CONTAINER_PORT: "5014"
-  HTTPS_INTERNAL_PORT: "5020"
+  HTTPS_CONTAINER_PORT: "5020"
 
 
 workflow:
