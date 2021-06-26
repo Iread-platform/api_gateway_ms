@@ -15,8 +15,12 @@ namespace iread_api_gateway_ms
     {
     public static void Main(string[] args)
     {
-        new WebHostBuilder()
-            .UseKestrel()
+         Host.CreateDefaultBuilder(args)
+        .ConfigureWebHostDefaults(webBuilder =>
+        {
+            webBuilder.UseStartup<Startup>();
+
+            webBuilder.UseKestrel()
             .UseContentRoot(Directory.GetCurrentDirectory())
             .ConfigureAppConfiguration((context, config) => 
             {
@@ -33,11 +37,12 @@ namespace iread_api_gateway_ms
                 logging.AddConsole();
             })
             .UseIIS()
+             .UseStartup<Startup>()
             .Configure(app =>
             {
                 app.UseOcelot().Wait();
-            })
-            .Build().Run();
+            });
+        }).Build().Run();
     }
 }
 }
