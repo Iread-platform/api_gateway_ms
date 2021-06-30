@@ -35,6 +35,18 @@
 			"LoadBalancerOptions": {
 				"Type": "RoundRobin"
 			}
+		},
+		{
+			"UseServiceDiscovery": true,
+			"ServiceName": "tag_ms",
+			"DownstreamPathTemplate": "/api/tags/{anything}",
+			"UpstreamPathTemplate": "/api/iread/tags/{anything}",
+			"DownstreamScheme": "http",
+			"UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+			"ReRoutesCaseSensitive": false,
+			"LoadBalancerOptions": {
+				"Type": "RoundRobin"
+			}
 		}
 	],
 	"GlobalConfiguration": {
