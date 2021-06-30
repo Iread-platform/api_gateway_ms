@@ -29,7 +29,15 @@ namespace iread_api_gateway_ms
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+	        services.AddCors(options =>
+	        {
+		        options.AddPolicy(name: "_myAllowSpecificOrigins",builder => 
+			        builder
+				        .AllowAnyOrigin()
+				        .AllowAnyMethod()
+				        .AllowAnyHeader());
+	        });
+	        
             services.AddControllers();
             services.AddOcelot().AddConsul();
             services.AddSwaggerGen(c =>
@@ -52,12 +60,7 @@ namespace iread_api_gateway_ms
 			
 			app.UseAuthentication();
 			app.UseRouting();
-			
-			app.UseCors(builder => builder
-				.AllowAnyOrigin()
-				.AllowAnyHeader()
-				.AllowAnyMethod());
-			
+			app.UseCors("_myAllowSpecificOrigins");
 			app.UseAuthorization();
 
 
