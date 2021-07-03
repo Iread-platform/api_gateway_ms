@@ -12,7 +12,9 @@ ENV GlobalConfiguration:ServiceDiscoveryProvider:Host="consul"
 
 COPY ./publish .
 
-COPY ./cert/localhost.pfx .
+RUN mkdir -p cert
+
+COPY ./cert/localhost.pfx ./cert
 
 EXPOSE 80
 
