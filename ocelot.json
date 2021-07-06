@@ -47,6 +47,18 @@
 			"LoadBalancerOptions": {
 				"Type": "RoundRobin"
 			}
+		},
+		{
+			"UseServiceDiscovery": true,
+			"ServiceName": "interaction_ms",
+			"DownstreamPathTemplate": "/api/interaction/{anything}",
+			"UpstreamPathTemplate": "/api/iread/interaction/{anything}",
+			"DownstreamScheme": "http",
+			"UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Options" ],
+			"ReRoutesCaseSensitive": false,
+			"LoadBalancerOptions": {
+				"Type": "RoundRobin"
+			}
 		}
 	],
 	"GlobalConfiguration": {
