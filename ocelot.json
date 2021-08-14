@@ -6,7 +6,31 @@
 			"DownstreamPathTemplate": "/api/story/{anything}",
 			"UpstreamPathTemplate": "/api/iread/story/{anything}",
 			"DownstreamScheme": "http",
-			"UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Options" ],
+			"UpstreamHttpMethod": [
+				"Get",
+				"Post",
+				"Put",
+				"Delete",
+				"Options"
+			],
+			"ReRoutesCaseSensitive": false,
+			"LoadBalancerOptions": {
+				"Type": "RoundRobin"
+			}
+		},
+		{
+			"UseServiceDiscovery": true,
+			"ServiceName": "identity_ms",
+			"DownstreamPathTemplate": "/api/identity/{anything}",
+			"UpstreamPathTemplate": "/api/iread/identity/{anything}",
+			"DownstreamScheme": "http",
+			"UpstreamHttpMethod": [
+				"Get",
+				"Post",
+				"Put",
+				"Delete",
+				"Options"
+			],
 			"ReRoutesCaseSensitive": false,
 			"LoadBalancerOptions": {
 				"Type": "RoundRobin"
@@ -18,7 +42,13 @@
 			"DownstreamPathTemplate": "/api/Attachment/{anything}",
 			"UpstreamPathTemplate": "/api/iread/Attachment/{anything}",
 			"DownstreamScheme": "http",
-			"UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Options" ],
+			"UpstreamHttpMethod": [
+				"Get",
+				"Post",
+				"Put",
+				"Delete",
+				"Options"
+			],
 			"ReRoutesCaseSensitive": false,
 			"LoadBalancerOptions": {
 				"Type": "RoundRobin"
@@ -30,7 +60,13 @@
 			"DownstreamPathTemplate": "/api/review/{anything}",
 			"UpstreamPathTemplate": "/api/iread/review/{anything}",
 			"DownstreamScheme": "http",
-			"UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Options" ],
+			"UpstreamHttpMethod": [
+				"Get",
+				"Post",
+				"Put",
+				"Delete",
+				"Options"
+			],
 			"ReRoutesCaseSensitive": false,
 			"LoadBalancerOptions": {
 				"Type": "RoundRobin"
@@ -42,7 +78,13 @@
 			"DownstreamPathTemplate": "/api/tags/{anything}",
 			"UpstreamPathTemplate": "/api/iread/tags/{anything}",
 			"DownstreamScheme": "http",
-			"UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Options" ],
+			"UpstreamHttpMethod": [
+				"Get",
+				"Post",
+				"Put",
+				"Delete",
+				"Options"
+			],
 			"ReRoutesCaseSensitive": false,
 			"LoadBalancerOptions": {
 				"Type": "RoundRobin"
@@ -54,7 +96,13 @@
 			"DownstreamPathTemplate": "/api/interaction/{anything}",
 			"UpstreamPathTemplate": "/api/iread/interaction/{anything}",
 			"DownstreamScheme": "http",
-			"UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Options" ],
+			"UpstreamHttpMethod": [
+				"Get",
+				"Post",
+				"Put",
+				"Delete",
+				"Options"
+			],
 			"ReRoutesCaseSensitive": false,
 			"LoadBalancerOptions": {
 				"Type": "RoundRobin"
@@ -70,5 +118,3 @@
 		}
 	}
 }
-
-
