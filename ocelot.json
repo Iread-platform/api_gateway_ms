@@ -1,8 +1,6 @@
 {
 	"Routes": [
-	
-	
-	       {
+		{
 			"UseServiceDiscovery": true,
 			"ServiceName": "school_ms",
 			"DownstreamPathTemplate": "/api/school/{anything}",
@@ -20,8 +18,6 @@
 				"Type": "RoundRobin"
 			}
 		},
-	
-	
 		{
 			"UseServiceDiscovery": true,
 			"ServiceName": "story_ms",
@@ -78,6 +74,24 @@
 		},
 		{
 			"UseServiceDiscovery": true,
+			"ServiceName": "attachment_ms",
+			"DownstreamPathTemplate": "/api/Avatar/{anything}",
+			"UpstreamPathTemplate": "/api/iread/Avatar/{anything}",
+			"DownstreamScheme": "http",
+			"UpstreamHttpMethod": [
+				"Get",
+				"Post",
+				"Put",
+				"Delete",
+				"Options"
+			],
+			"ReRoutesCaseSensitive": false,
+			"LoadBalancerOptions": {
+				"Type": "RoundRobin"
+			}
+		},
+		{
+			"UseServiceDiscovery": true,
 			"ServiceName": "review_ms",
 			"DownstreamPathTemplate": "/api/review/{anything}",
 			"UpstreamPathTemplate": "/api/iread/review/{anything}",
@@ -99,6 +113,24 @@
 			"ServiceName": "tag_ms",
 			"DownstreamPathTemplate": "/api/tags/{anything}",
 			"UpstreamPathTemplate": "/api/iread/tags/{anything}",
+			"DownstreamScheme": "http",
+			"UpstreamHttpMethod": [
+				"Get",
+				"Post",
+				"Put",
+				"Delete",
+				"Options"
+			],
+			"ReRoutesCaseSensitive": false,
+			"LoadBalancerOptions": {
+				"Type": "RoundRobin"
+			}
+		},
+		{
+			"UseServiceDiscovery": true,
+			"ServiceName": "tag_ms",
+			"DownstreamPathTemplate": "/api/category/{anything}",
+			"UpstreamPathTemplate": "/api/iread/category/{anything}",
 			"DownstreamScheme": "http",
 			"UpstreamHttpMethod": [
 				"Get",
