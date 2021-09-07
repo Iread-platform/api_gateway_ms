@@ -56,6 +56,24 @@
 		},
 		{
 			"UseServiceDiscovery": true,
+			"ServiceName": "identity_ms",
+			"DownstreamPathTemplate": "/connect/token",
+			"UpstreamPathTemplate": "/api/iread/connect/token",
+			"DownstreamScheme": "http",
+			"UpstreamHttpMethod": [
+				"Get",
+				"Post",
+				"Put",
+				"Delete",
+				"Options"
+			],
+			"ReRoutesCaseSensitive": false,
+			"LoadBalancerOptions": {
+				"Type": "RoundRobin"
+			}
+		},
+		{
+			"UseServiceDiscovery": true,
 			"ServiceName": "attachment_ms",
 			"DownstreamPathTemplate": "/api/Attachment/{anything}",
 			"UpstreamPathTemplate": "/api/iread/Attachment/{anything}",
