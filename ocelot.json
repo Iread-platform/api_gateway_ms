@@ -2,6 +2,24 @@
 	"Routes": [
 		{
 			"UseServiceDiscovery": true,
+			"ServiceName": "assignment_ms",
+			"DownstreamPathTemplate": "/api/assignment/{anything}",
+			"UpstreamPathTemplate": "/api/iread/assignment/{anything}",
+			"DownstreamScheme": "http",
+			"UpstreamHttpMethod": [
+				"Get",
+				"Post",
+				"Put",
+				"Delete",
+				"Options"
+			],
+			"ReRoutesCaseSensitive": false,
+			"LoadBalancerOptions": {
+				"Type": "RoundRobin"
+			}
+		},
+		{
+			"UseServiceDiscovery": true,
 			"ServiceName": "school_ms",
 			"DownstreamPathTemplate": "/api/school/{anything}",
 			"UpstreamPathTemplate": "/api/iread/school/{anything}",
