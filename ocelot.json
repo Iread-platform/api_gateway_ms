@@ -56,6 +56,24 @@
 		},
 		{
 			"UseServiceDiscovery": true,
+			"ServiceName": "story_ms",
+			"DownstreamPathTemplate": "/api/Language/{anything}",
+			"UpstreamPathTemplate": "/api/iread/Language/{anything}",
+			"DownstreamScheme": "http",
+			"UpstreamHttpMethod": [
+				"Get",
+				"Post",
+				"Put",
+				"Delete",
+				"Options"
+			],
+			"ReRoutesCaseSensitive": false,
+			"LoadBalancerOptions": {
+				"Type": "RoundRobin"
+			}
+		},
+		{
+			"UseServiceDiscovery": true,
 			"ServiceName": "identity_ms",
 			"DownstreamPathTemplate": "/api/identity/{anything}",
 			"UpstreamPathTemplate": "/api/iread/identity/{anything}",
@@ -185,6 +203,60 @@
 			"ServiceName": "interaction_ms",
 			"DownstreamPathTemplate": "/api/interaction/{anything}",
 			"UpstreamPathTemplate": "/api/iread/interaction/{anything}",
+			"DownstreamScheme": "http",
+			"UpstreamHttpMethod": [
+				"Get",
+				"Post",
+				"Put",
+				"Delete",
+				"Options"
+			],
+			"ReRoutesCaseSensitive": false,
+			"LoadBalancerOptions": {
+				"Type": "RoundRobin"
+			}
+		},
+		{
+			"UseServiceDiscovery": true,
+			"ServiceName": "notifications_ms",
+			"DownstreamPathTemplate": "/api/Notification/{anything}",
+			"UpstreamPathTemplate": "/api/iread/Notification/{anything}",
+			"DownstreamScheme": "http",
+			"UpstreamHttpMethod": [
+				"Get",
+				"Post",
+				"Put",
+				"Delete",
+				"Options"
+			],
+			"ReRoutesCaseSensitive": false,
+			"LoadBalancerOptions": {
+				"Type": "RoundRobin"
+			}
+		},
+		{
+			"UseServiceDiscovery": true,
+			"ServiceName": "notifications_ms",
+			"DownstreamPathTemplate": "/api/Topic/{anything}",
+			"UpstreamPathTemplate": "/api/iread/Topic/{anything}",
+			"DownstreamScheme": "http",
+			"UpstreamHttpMethod": [
+				"Get",
+				"Post",
+				"Put",
+				"Delete",
+				"Options"
+			],
+			"ReRoutesCaseSensitive": false,
+			"LoadBalancerOptions": {
+				"Type": "RoundRobin"
+			}
+		},
+		{
+			"UseServiceDiscovery": true,
+			"ServiceName": "notifications_ms",
+			"DownstreamPathTemplate": "/api/User/{anything}",
+			"UpstreamPathTemplate": "/api/iread/User/{anything}",
 			"DownstreamScheme": "http",
 			"UpstreamHttpMethod": [
 				"Get",
